@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/BumperEngineV1/Scenes/LoadingScreen.unity
     guid: 5222abf34946d874fb2350750e29d16d
   - enabled: 1
+    path: Assets/test.unity
+    guid: 042de84f03e771b4f9e5d36f15118041
+  - enabled: 1
     path: Assets/BumperEngineV1/Scenes/IntroZone.unity
     guid: bee65b02b1bee5c47b3603413cd07c9a
   - enabled: 1

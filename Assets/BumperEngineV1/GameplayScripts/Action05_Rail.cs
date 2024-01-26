@@ -82,9 +82,9 @@ public class Action05_Rail : MonoBehaviour
         range = Range;
         RailTransform = RailPos;
         OnRail = true;
-        PlayerSpeed = Player.rigidbody.velocity.magnitude;
+        PlayerSpeed = Player.GetComponent<Rigidbody>().velocity.magnitude;
         CurveSample sample = Rail_int.RailSpline.GetSampleAtDistance(range);
-        float dotdir = Vector3.Dot(Player.rigidbody.velocity.normalized, sample.tangent);
+        float dotdir = Vector3.Dot(Player.GetComponent<Rigidbody>().velocity.normalized, sample.tangent);
         Crouching = false;
 
         InitialRot = (Quaternion.FromToRotation(transform.up, sample.up) * transform.rotation);
@@ -192,14 +192,14 @@ public class Action05_Rail : MonoBehaviour
             //Set Player Speed correctly so that it becomes smooth grinding
             if (!backwards)
             {
-                Player.rigidbody.velocity = sample.tangent * (PlayerSpeed);
+                Player.GetComponent<Rigidbody>().velocity = sample.tangent * (PlayerSpeed);
 
                 //remove camera tracking at the end of the rail to be safe from strange turns
                 //if (range > Rail_int.RailSpline.Length * 0.9f) { Player.MainCamera.GetComponent<HedgeCamera>().Timer = 0f;}
             }
             else
             {
-                Player.rigidbody.velocity = -sample.tangent * (PlayerSpeed);
+                Player.GetComponent<Rigidbody>().velocity = -sample.tangent * (PlayerSpeed);
 
                 //remove camera tracking at the end of the rail to be safe from strange turns
                 //if (range < 0.1f) { Player.MainCamera.GetComponent<HedgeCamera>().Timer = 0f; }
@@ -242,7 +242,7 @@ public class Action05_Rail : MonoBehaviour
         //v = (v + 1) / 2;
         //use player vertical speed to find if player is going up or down
         //Debug.Log(Player.p_rigidbody.velocity.normalized.y);
-        if (Player.rigidbody.velocity.y >= -3f)
+        if (Player.GetComponent<Rigidbody>().velocity.y >= -3f)
         {
             //uphill and straight
             float lean = UpHillMultiplier;
@@ -250,7 +250,7 @@ public class Action05_Rail : MonoBehaviour
             //Debug.Log("UpHill : *" + lean);
             float force = (SlopePower * curvePosSlope) * lean;
             //Debug.Log(Mathf.Abs(Player.p_rigidbody.velocity.normalized.y - 1));
-            float AbsYPow = Mathf.Abs(Player.rigidbody.velocity.normalized.y * Player.rigidbody.velocity.normalized.y);
+            float AbsYPow = Mathf.Abs(Player.GetComponent<Rigidbody>().velocity.normalized.y * Player.GetComponent<Rigidbody>().velocity.normalized.y);
             //Debug.Log( "Val" + Player.p_rigidbody.velocity.normalized.y + "Pow" + AbsYPow);
             force = (AbsYPow * force) + (DragVal * PlayerSpeed);
             //Debug.Log(force);
@@ -270,7 +270,7 @@ public class Action05_Rail : MonoBehaviour
             //Debug.Log("DownHill : *" + lean);
             float force = (SlopePower * curvePosSlope) * lean;
             //Debug.Log(Mathf.Abs(Player.p_rigidbody.velocity.normalized.y));
-            float AbsYPow = Mathf.Abs(Player.rigidbody.velocity.normalized.y * Player.rigidbody.velocity.normalized.y);
+            float AbsYPow = Mathf.Abs(Player.GetComponent<Rigidbody>().velocity.normalized.y * Player.GetComponent<Rigidbody>().velocity.normalized.y);
             //Debug.Log("Val" + Player.p_rigidbody.velocity.normalized.y + "Pow" + AbsYPow);
             force = (AbsYPow * force) - (DragVal * PlayerSpeed);
             //Debug.Log(force);
@@ -316,12 +316,12 @@ public class Action05_Rail : MonoBehaviour
     {
         //Set Animator Parameters
         CharacterAnimator.SetInteger("Action", 5);
-        CharacterAnimator.SetFloat("YSpeed", Player.rigidbody.velocity.y);
-        CharacterAnimator.SetFloat("GroundSpeed", Player.rigidbody.velocity.magnitude);
+        CharacterAnimator.SetFloat("YSpeed", Player.GetComponent<Rigidbody>().velocity.y);
+        CharacterAnimator.SetFloat("GroundSpeed", Player.GetComponent<Rigidbody>().velocity.magnitude);
         CharacterAnimator.SetBool("Grounded", Player.Grounded);
 
         //Set Animation Angle
-        Vector3 VelocityMod = new Vector3(Player.rigidbody.velocity.x, Player.rigidbody.velocity.y, Player.rigidbody.velocity.z);
+        Vector3 VelocityMod = new Vector3(Player.GetComponent<Rigidbody>().velocity.x, Player.GetComponent<Rigidbody>().velocity.y, Player.GetComponent<Rigidbody>().velocity.z);
         Quaternion CharRot = Quaternion.LookRotation(VelocityMod, transform.up);
         CharacterAnimator.transform.rotation = Quaternion.Lerp(CharacterAnimator.transform.rotation, CharRot, Time.deltaTime * skinRotationSpeed);
 
