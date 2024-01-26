@@ -10,6 +10,7 @@ public class SonicSoundsControl : MonoBehaviour {
     public AudioSource Source2;
     public AudioSource Source3;
 	public AudioSource Source4;
+    public AudioSource RailSource;
     public AudioClip[] FootSteps;
     public AudioClip Jumping;
     public AudioClip AirDash;
@@ -24,12 +25,24 @@ public class SonicSoundsControl : MonoBehaviour {
     public AudioClip RingLoss;
     public AudioClip Die;
     public AudioClip Spiked;
+    public AudioClip RailLoop;
+    
 
-	public AudioClip[] CombatVoiceClips;
+    public AudioClip[] CombatVoiceClips;
 	public AudioClip[] JumpingVoiceClips;
 	public AudioClip[] PainVoiceClips;
 
     public float pitchBendingRate = 1;
+
+    public AudioSource GetRailsource()
+    {
+        return RailSource;
+    }
+
+    public void SetRailsource(AudioSource value)
+    {
+        RailSource = value;
+    }
 
     public void Test(string i)
     {
@@ -139,6 +152,13 @@ public class SonicSoundsControl : MonoBehaviour {
 		}
         Source3.Play();
     }
+    public void RailSoundStart()
+    {
+        RailSource.clip = RailLoop;
+        RailSource.Play();
+    }
+    public void RailStop() => RailSource.Stop();
+
     public void SpikedSound()
     {
         Source3.clip = Spiked;

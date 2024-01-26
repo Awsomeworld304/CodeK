@@ -11,7 +11,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{296F681F-571A-5292-76FC-1B7215298CBA}</ProjectGuid>
+    <ProjectGuid>{C32CFFA5-5708-C25F-693E-3EF9D0819C4D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -104,7 +104,6 @@
      <Compile Include="Assets\BumperEngineV1\GameplayScripts\PlayerPhysics.cs" />
      <Compile Include="Assets\BumperEngineV1\GameplayScripts\PlayerSkin.cs" />
      <Compile Include="Assets\BumperEngineV1\GameplayScripts\PlayerSphysics.cs" />
-     <Compile Include="Assets\BumperEngineV1\GameplayScripts\Rail.cs" />
      <Compile Include="Assets\BumperEngineV1\GameplayScripts\Rail_Interaction.cs" />
      <Compile Include="Assets\BumperEngineV1\GameplayScripts\Rep.cs" />
      <Compile Include="Assets\BumperEngineV1\GameplayScripts\RingGiverControl.cs" />
@@ -800,36 +799,36 @@
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.13f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>C:/Users/buche/Documents/Projects/CodeK/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>C:/Users/kodyr/Downloads/GTBumper2019/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>C:/Users/buche/Documents/Projects/CodeK/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>C:/Users/kodyr/Downloads/GTBumper2019/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/buche/Documents/Projects/CodeK/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/kodyr/Downloads/GTBumper2019/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Users/buche/Documents/Projects/CodeK/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Users/kodyr/Downloads/GTBumper2019/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>C:/Users/buche/Documents/Projects/CodeK/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>C:/Users/kodyr/Downloads/GTBumper2019/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>C:/Users/buche/Documents/Projects/CodeK/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>C:/Users/kodyr/Downloads/GTBumper2019/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>C:/Users/buche/Documents/Projects/CodeK/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>C:/Users/kodyr/Downloads/GTBumper2019/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/buche/Documents/Projects/CodeK/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/kodyr/Downloads/GTBumper2019/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>C:/Users/buche/Documents/Projects/CodeK/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>C:/Users/kodyr/Downloads/GTBumper2019/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{AD8778FC-EF24-01ED-35F5-62ED3A1D4699}</Project>
+      <Project>{45E3ED5F-9F39-BDC9-C49A-7FB61912BBE2}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
   </ItemGroup>
