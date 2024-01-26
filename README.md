@@ -1,5 +1,5 @@
 # CodeK
-CodeK is a placeholder name for the sonic game the group is working on.
+CodeK is a placeholder name for the sonic game we're is working on.
 Made with Bumper Engine (2019)
 
 ## Features
