@@ -26860,7 +26860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf837daebff4b9748af103d6635b5e0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveAccell: 0.45
+  MoveAccell: 0.5
   AccellOverSpeed:
     serializedVersion: 2
     m_Curve:
@@ -26895,7 +26895,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   AccellShiftOverSpeed: 1
-  MoveDecell: 1.025
+  MoveDecell: 1.1
   AirDecell: 1.01
   TangentialDrag: 7.5
   TangentialDragShiftSpeed: 1
@@ -27228,7 +27228,7 @@ MonoBehaviour:
   CharacterAnimator: {fileID: 95392250101621530}
   isAdditive: 0
   HomingAttackSpeed: 200
-  AirDashSpeed: 80
+  AirDashSpeed: 115
   HomingTimerLimit: 60
   FacingAmount: 0
   HomingTrailContainer: {fileID: 1717954526327804}
@@ -27432,13 +27432,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterAnimator: {fileID: 95392250101621530}
   Sound: {fileID: 114848054282303684}
+  effects: {fileID: 0}
   Skin: {fileID: 1708149514531078}
-  skinRotationSpeed: 1
-  SkinOffsetPos: {x: 0, y: -0.4, z: 0}
+  skinRotationSpeed: 10
+  SkinOffsetPos: {x: 0, y: -2, z: 0}
   Offset: 2.05
   CameraSpeed: 2
-  MinStartSpeed: 60
-  PushFowardmaxSpeed: 80
+  MinStartSpeed: 80
+  PushFowardmaxSpeed: 115
   PushFowardIncrements: 15
   PushFowardDelay: 0.5
   SlopePower: 2.5

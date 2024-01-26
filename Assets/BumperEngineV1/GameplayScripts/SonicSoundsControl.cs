@@ -2,14 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class SonicSoundsControl : MonoBehaviour {
+public class SonicSoundsControl : MonoBehaviour
+{
 
     public PlayerBhysics Player;
 
     AudioSource Source;
     public AudioSource Source2;
     public AudioSource Source3;
-	public AudioSource Source4;
+    public AudioSource Source4;
     public AudioSource RailSource;
     public AudioClip[] FootSteps;
     public AudioClip Jumping;
@@ -19,30 +20,19 @@ public class SonicSoundsControl : MonoBehaviour {
     public AudioClip Spin;
     public AudioClip SpinDash;
     public AudioClip SpinDashRelease;
-	public AudioClip BounceStart;
-	public AudioClip BounceImpact;
-	public AudioClip StompImpact;
+    public AudioClip BounceStart;
+    public AudioClip BounceImpact;
+    public AudioClip StompImpact;
     public AudioClip RingLoss;
     public AudioClip Die;
     public AudioClip Spiked;
     public AudioClip RailLoop;
-    
 
     public AudioClip[] CombatVoiceClips;
-	public AudioClip[] JumpingVoiceClips;
-	public AudioClip[] PainVoiceClips;
+    public AudioClip[] JumpingVoiceClips;
+    public AudioClip[] PainVoiceClips;
 
     public float pitchBendingRate = 1;
-
-    public AudioSource GetRailsource()
-    {
-        return RailSource;
-    }
-
-    public void SetRailsource(AudioSource value)
-    {
-        RailSource = value;
-    }
 
     public void Test(string i)
     {
@@ -54,37 +44,39 @@ public class SonicSoundsControl : MonoBehaviour {
         Source = GetComponent<AudioSource>();
     }
 
-	public void CombatVoicePlay()
-	{
-		int rand = Random.Range(0, CombatVoiceClips.Length);
-		Source4.clip = CombatVoiceClips[rand];
-		Source4.Play();
-	}
-	public void JumpingVoicePlay()
-	{
-		int rand = Random.Range(0, JumpingVoiceClips.Length);
-		Source4.clip = JumpingVoiceClips[rand];
-		Source4.Play();
-	}
-	public void PainVoicePlay()
-	{
-		int rand = Random.Range(0, PainVoiceClips.Length);
-		Source4.clip = PainVoiceClips[rand];
-		Source4.Play();
-	}
+    public void CombatVoicePlay()
+    {
+        int rand = Random.Range(0, CombatVoiceClips.Length);
+        Source4.clip = CombatVoiceClips[rand];
+        Source4.Play();
+    }
+    public void JumpingVoicePlay()
+    {
+        int rand = Random.Range(0, JumpingVoiceClips.Length);
+        Source4.clip = JumpingVoiceClips[rand];
+        Source4.Play();
+    }
+    public void PainVoicePlay()
+    {
+        int rand = Random.Range(0, PainVoiceClips.Length);
+        Source4.clip = PainVoiceClips[rand];
+        Source4.Play();
+    }
     public void FootStepSoundPlay()
     {
-		if (FootSteps.Length > 0) {
-			int rand = Random.Range (0, FootSteps.Length);
-			Source.clip = FootSteps [rand];
-			Source.Play ();
-		}
+        if (FootSteps.Length > 0)
+        {
+            int rand = Random.Range(0, FootSteps.Length);
+            Source.clip = FootSteps[rand];
+            Source.Play();
+        }
     }
     public void JumpSound()
     {
-		if (JumpingVoiceClips.Length > 0) {
-			JumpingVoicePlay ();
-		}
+        if (JumpingVoiceClips.Length > 0)
+        {
+            JumpingVoicePlay();
+        }
         Source2.clip = Jumping;
         Source2.Play();
     }
@@ -97,9 +89,10 @@ public class SonicSoundsControl : MonoBehaviour {
     {
         Source2.clip = HomingAttack;
         Source2.Play();
-		if (CombatVoiceClips.Length > 0) {
-			CombatVoicePlay ();
-		}
+        if (CombatVoiceClips.Length > 0)
+        {
+            CombatVoicePlay();
+        }
     }
     public void AirDashSound()
     {
@@ -116,21 +109,21 @@ public class SonicSoundsControl : MonoBehaviour {
         Source2.clip = SpinDash;
         Source2.Play();
     }
-	public void BounceStartSound()
-	{
-		Source2.clip = BounceStart;
-		Source2.Play();
-	}
-	public void BounceImpactSound()
-	{
-		Source2.clip = BounceImpact;
-		Source2.Play();
-	}
-	public void StompImpactSound()
-	{
-		Source2.clip = StompImpact;
-		Source2.Play();
-	}
+    public void BounceStartSound()
+    {
+        Source2.clip = BounceStart;
+        Source2.Play();
+    }
+    public void BounceImpactSound()
+    {
+        Source2.clip = BounceImpact;
+        Source2.Play();
+    }
+    public void StompImpactSound()
+    {
+        Source2.clip = StompImpact;
+        Source2.Play();
+    }
     public void SpinDashReleaseSound()
     {
         Source2.clip = SpinDashRelease;
@@ -139,30 +132,36 @@ public class SonicSoundsControl : MonoBehaviour {
     public void RingLossSound()
     {
         Source3.clip = RingLoss;
-		if (PainVoiceClips.Length > 0) {
-			PainVoicePlay ();
-		}
+        if (PainVoiceClips.Length > 0)
+        {
+            PainVoicePlay();
+        }
         Source3.Play();
     }
     public void DieSound()
     {
         Source3.clip = Die;
-		if (PainVoiceClips.Length > 0) {
-			PainVoicePlay ();
-		}
+        if (PainVoiceClips.Length > 0)
+        {
+            PainVoicePlay();
+        }
         Source3.Play();
     }
+    public void SpikedSound()
+    {
+        Source3.clip = Spiked;
+        Source3.Play();
+    }
+
     public void RailSoundStart()
     {
         RailSource.clip = RailLoop;
         RailSource.Play();
     }
-    public void RailStop() => RailSource.Stop();
 
-    public void SpikedSound()
+    public void RailStop()
     {
-        Source3.clip = Spiked;
-        Source3.Play();
+        RailSource.Stop();
     }
 
 }
