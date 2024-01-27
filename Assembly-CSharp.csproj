@@ -64,6 +64,7 @@
      <Compile Include="Assets\BumperEngineV1\GameplayScripts\Action06_Bounce.cs" />
      <Compile Include="Assets\BumperEngineV1\GameplayScripts\Action07_LightDash.cs" />
      <Compile Include="Assets\BumperEngineV1\GameplayScripts\Action08_DropDash.cs" />
+     <Compile Include="Assets\BumperEngineV1\GameplayScripts\Action09_WallRun.cs" />
      <Compile Include="Assets\BumperEngineV1\GameplayScripts\ActionManager.cs" />
      <Compile Include="Assets\BumperEngineV1\GameplayScripts\AnalogDebug.cs" />
      <Compile Include="Assets\BumperEngineV1\GameplayScripts\AngleTest.cs" />
@@ -126,6 +127,7 @@
      <Compile Include="Assets\BumperEngineV1\GameplayScripts\StageSelect.cs" />
      <Compile Include="Assets\BumperEngineV1\GameplayScripts\Switch_Properties.cs" />
      <Compile Include="Assets\BumperEngineV1\GameplayScripts\TestDebug.cs" />
+     <Compile Include="Assets\BumperEngineV1\GameplayScripts\WallRunControl.cs" />
      <Compile Include="Assets\BumperEngineV1\Models\PlayerModels\ManiaSonic\ParticleSpiralEffect.cs" />
      <Compile Include="Assets\DeferredCustomLights\CustomLight.cs" />
      <Compile Include="Assets\DeferredCustomLights\CustomLightRenderer.cs" />
