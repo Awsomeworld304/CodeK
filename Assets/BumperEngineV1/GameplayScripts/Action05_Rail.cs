@@ -17,7 +17,7 @@ public class Action05_Rail : MonoBehaviour
     [Header("Skin Params")]
 
     public GameObject Skin;
-    public float skinRotationSpeed = 50f;
+    public float skinRotationSpeed = 1080f; //og value 50f
     public Vector3 SkinOffsetPos = new Vector3(0, -0.4f, 0);
     Vector3 OGSkinLocPos;
     public float Offset = 2.05f;
