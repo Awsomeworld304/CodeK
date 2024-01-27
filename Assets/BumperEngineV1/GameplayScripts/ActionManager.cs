@@ -21,6 +21,8 @@ public class ActionManager : MonoBehaviour {
 	public Action07_LightDash Action07;
 	public LightDashControl Action07Control;
 	public Action08_DropDash Action08;
+    // WALL RUNNING //
+    public Action09_WallRun Action09;
 
     //Etc
 
@@ -65,8 +67,11 @@ public class ActionManager : MonoBehaviour {
 		if (Action08 != null) {
 			Action08.enabled = false;
 		}
+        if (Action09 != null) {
+            Action09.enabled = false;
+        }
 
-	}
+    }
 
     //Call this function to change the action
 
@@ -105,6 +110,9 @@ public class ActionManager : MonoBehaviour {
 				break;
 			case 8:
 				Action08.enabled = true;
+                break;
+            case 9:
+                Action09.enabled = true;
 			break;
             default:
                 //Debug.Log("Action is not available.");

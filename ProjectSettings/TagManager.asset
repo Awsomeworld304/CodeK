@@ -22,6 +22,7 @@ TagManager:
   - Bumper
   - Switch
   - CancelHoming
+  - WallRun
   layers:
   - Default
   - TransparentFX
