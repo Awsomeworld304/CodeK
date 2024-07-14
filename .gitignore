@@ -1,10 +1,10 @@
-/Library
+/[Ll]ibrary
 /[Tt]emp
-/obj
+/[Oo]bj
 /[Bb]uild
 /[Bb]uilds
-/Logs
-/UserSettings
+/[Ll]ogs
+/[Uu]ser[Ss]ettings
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
