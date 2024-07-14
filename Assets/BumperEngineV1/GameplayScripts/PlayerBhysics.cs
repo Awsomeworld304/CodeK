@@ -21,6 +21,8 @@ public class PlayerBhysics : MonoBehaviour
     public float TopSpeed = 15;
     public float MaxSpeed = 30;
     public float MaxFallingSpeed = 30;
+    public float WallRunSpeed;
+    public bool WallRunning { get; set; }
     public float m_JumpPower = 2;
     public float GroundStickingDistance = 1;
     public float GroundStickingPower = -1;
@@ -130,6 +132,8 @@ public class PlayerBhysics : MonoBehaviour
 
     private void Start()
     {
+        WallRunSpeed = TopSpeed * 0.75f;
+
         p_rigidbody = GetComponent<Rigidbody>();
         PreviousInput = transform.forward;
         Action = GetComponent<ActionManager>();
@@ -285,7 +289,7 @@ public class PlayerBhysics : MonoBehaviour
                                       : Quaternion.FromToRotation(lateralVelocity.normalized, inputDirection);
 
             // Step 2) Let the user retain some component of the velocity if it's trying to move in
-            //         nearby directions from the current one. This should improve controlability.
+            //         nearby directions from thexz` current one. This should improve controlability.
 
             float turnRate = TurnRateOverAngle.Evaluate(deviationFromInput);
             lateralVelocity = Vector3.RotateTowards(lateralVelocity, lateralToInput * lateralVelocity,
@@ -661,6 +665,12 @@ public class PlayerBhysics : MonoBehaviour
             GroundNormal = hit.normal;
             Grounded = true;
             GroundMovement();
+        }
+        else if (WallRunning)
+        {
+            Debug.Log("Wall running!!!!!!!");
+            GroundNormal = hit.normal;
+            Grounded = true;
         }
         else
         {

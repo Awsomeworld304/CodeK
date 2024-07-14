@@ -23,6 +23,7 @@ public class ActionManager : MonoBehaviour {
 	public Action08_DropDash Action08;
     // WALL RUNNING //
     public Action09_WallRun Action09;
+    public WallRunControl Action09Control;
 
     //Etc
 

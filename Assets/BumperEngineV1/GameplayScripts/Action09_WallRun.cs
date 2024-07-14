@@ -3,17 +3,14 @@ using System.Collections;
 
 public class Action09_WallRun : MonoBehaviour {
 
+    /*
     public ActionManager Action;
     public Animator CharacterAnimator;
     PlayerBhysics Player;
 
     public bool isAdditive;
-    public float HomingAttackSpeed;
-    public float AirDashSpeed;
-    public float HomingTimerLimit;
+    public float RunTimerLimit;
     public float FacingAmount;
-	public GameObject HomingTrailContainer;
-	public GameObject HomingTrail;
 	public GameObject JumpDashParticle;
     float Timer;
     float Speed;
@@ -25,7 +22,114 @@ public class Action09_WallRun : MonoBehaviour {
     public float skinRotationSpeed;
     public bool WallJumpable { get; set; }
     public bool IsAirDash { get; set; }
+    */
 
+    [Header("Wallruning")]
+    public LayerMask whatIsWall;
+    public LayerMask whatIsGround;
+    public float wallRunForce;
+    public float maxWallRunTime;
+    private float wallRunTimer;
+
+    [Header("Input")]
+    private float hInput;
+    private float vInput;
+
+    [Header("Detection")]
+    public float wallCheckDistance;
+    public float minJumpHeight;
+    private RaycastHit leftWallHit;
+    private RaycastHit rightWallHit;
+    private bool wallLeft;
+    private bool wallRight;
+
+    [Header("References")]
+    public Transform orientation;
+    private PlayerBhysics Player;
+    //private PlayerPhysics PlayerPhys;
+    private Rigidbody rb;
+
+    private void Start()
+    {
+        //rb = GetComponent<Rigidbody>();
+        rb = Player.p_rigidbody.GetComponent<Rigidbody>();
+        Player = GetComponent<PlayerBhysics>();
+        //PlayerPhys = GetComponent<PlayerPhysics>();
+    }
+
+    private void Update()
+    {
+        checkForWall();
+        stateMachine();
+    }
+
+    private void FixedUpdate()
+    {
+        if (Player.WallRunning) { wallRuningMovement(); }
+    }
+
+    private void checkForWall()
+    {
+        wallRight = Physics.Raycast(transform.position, orientation.right, out rightWallHit, wallCheckDistance, whatIsWall);
+        wallLeft = Physics.Raycast(transform.position, -orientation.right, out leftWallHit, wallCheckDistance, whatIsWall);
+    }
+
+    private bool AboveGround()
+    {
+        return !Physics.Raycast(transform.position, Vector3.down, minJumpHeight, whatIsGround);
+    }
+
+    private void stateMachine()
+    {
+        hInput = Input.GetAxisRaw("Horizontal");
+        vInput = Input.GetAxisRaw("Vertical");
+
+        // State 1 - Wall Running
+        if ((wallLeft || wallRight) && vInput > 0 && AboveGround())
+        {
+            if (!Player.WallRunning) { startWallRun(); }
+        }
+
+        // State 3 - None
+        else
+        {
+            if (Player.WallRunning) { stopWallRun(); }
+        }
+    }
+
+    private void startWallRun()
+    {
+        Player.WallRunning = true;
+    }
+
+    private void wallRuningMovement()
+    {
+        rb.useGravity = false;
+        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+
+        Vector3 wallNormal = wallRight ? rightWallHit.normal : leftWallHit.normal;
+        Vector3 wallForward = Vector3.Cross(wallNormal, transform.up);
+
+        // Allow back and forth wall running.
+        if ((orientation.forward - wallForward).magnitude > (orientation.forward - -wallForward).magnitude) {
+            wallForward = -wallForward;
+        }
+
+        rb.AddForce(wallForward * wallRunForce, ForceMode.Force);
+
+        //Pushes you to the wall if you're not trying to get away.
+        if (!(wallLeft && hInput > 0) && !(wallRight && hInput < 0))
+        {
+            rb.AddForce(-wallNormal * 100, ForceMode.Force);
+        }
+    }
+
+    private void stopWallRun()
+    {
+        Player.WallRunning = false;
+    }
+
+    /*
     void Awake()
     {
         WallJumpable = true;
@@ -36,17 +140,10 @@ public class Action09_WallRun : MonoBehaviour {
     {
 
 		Action.Action01.JumpBall.SetActive(false);
-		if (HomingTrailContainer.transform.childCount < 1) 
-		{
-			GameObject HomingTrailClone = Instantiate (HomingTrail, HomingTrailContainer.transform.position, Quaternion.identity) as GameObject;
-			HomingTrailClone.transform.parent = HomingTrailContainer.transform;
 
-			GameObject JumpDashParticleClone = Instantiate (JumpDashParticle, HomingTrailContainer.transform.position, Quaternion.identity) as GameObject;
-			JumpDashParticleClone.transform.parent = HomingTrailContainer.transform;
-		}
-			
+		Player.speed
 
-        if (Action.Action02Control.HasTarget)
+        if (Action.Action09Control.HasTarget)
         {
             Target = HomingAttackControl.TargetObject.transform;
         }
@@ -109,8 +206,10 @@ public class Action09_WallRun : MonoBehaviour {
         Vector3 VelocityMod = new Vector3(Player.p_rigidbody.velocity.x, 0, Player.p_rigidbody.velocity.z);
         Quaternion CharRot = Quaternion.LookRotation(VelocityMod, transform.up);
         CharacterAnimator.transform.rotation = Quaternion.Lerp(CharacterAnimator.transform.rotation, CharRot, Time.deltaTime * skinRotationSpeed);
+    }
 
-
+    private void OnTriggerEnter()
+    {
 
     }
 
@@ -131,7 +230,7 @@ public class Action09_WallRun : MonoBehaviour {
                // //Debug.Log("prev");
                 Player.p_rigidbody.velocity = transform.TransformDirection(Player.PreviousRawInput) * Aspeed;
             }
-            Timer = HomingTimerLimit + 10;
+            Timer = RunTimerLimit + 10;
         }
         else
         {
@@ -147,7 +246,7 @@ public class Action09_WallRun : MonoBehaviour {
 		}
 
         //End homing attck if on air for too long
-        if (Timer > HomingTimerLimit)
+        if (Timer > RunTimerLimit)
         {
             Action.ChangeAction(0);
         }
@@ -157,9 +256,9 @@ public class Action09_WallRun : MonoBehaviour {
     {
         Timer = 0;
 		HomingTrailContainer.transform.DetachChildren ();
-        //IsAirDash = false;
+        IsAirDash = false;
     }
 
-
+*/
 
 }

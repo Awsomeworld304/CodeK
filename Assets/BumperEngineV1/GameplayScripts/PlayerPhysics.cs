@@ -5,7 +5,7 @@ public class PlayerPhysics : MonoBehaviour {
 
     public Vector3 XYZSpeed { get; set; }
     public Vector3 XYZFloat { get; set; }
-    public Vector3 Gravity;
+    public Vector3 Gravity { get; set; }
     public bool Grounded { get; set; }
 
     public Transform DownRayPosition;

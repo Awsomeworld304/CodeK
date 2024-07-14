@@ -26804,6 +26804,8 @@ GameObject:
   - component: {fileID: 114799310231172354}
   - component: {fileID: 114718465057638660}
   - component: {fileID: 114710175666145412}
+  - component: {fileID: 8083913868049062555}
+  - component: {fileID: 7061305420613870490}
   m_Layer: 8
   m_Name: Player_Sonic_Modern
   m_TagString: Player
@@ -26829,6 +26831,7 @@ Transform:
   - {fileID: 4737595817924528}
   - {fileID: 4299323710954476}
   - {fileID: 4711253468843566}
+  - {fileID: 7167640200929609131}
   m_Father: {fileID: 4627404032958600}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -26984,6 +26987,7 @@ MonoBehaviour:
   TopSpeed: 105
   MaxSpeed: 500
   MaxFallingSpeed: -500
+  WallRunSpeed: 0
   m_JumpPower: 2
   GroundStickingDistance: 0.1
   GroundStickingPower: -1.5
@@ -27053,7 +27057,7 @@ MonoBehaviour:
   RotationResetThreshold: -0.1
   Playermask:
     serializedVersion: 2
-    m_Bits: 94263
+    m_Bits: 225335
 --- !u!114 &114181856209836844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27168,6 +27172,8 @@ MonoBehaviour:
   Action07: {fileID: 114710175666145412}
   Action07Control: {fileID: 114718465057638660}
   Action08: {fileID: 0}
+  Action09: {fileID: 7061305420613870490}
+  Action09Control: {fileID: 0}
 --- !u!114 &114206433911457930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27519,6 +27525,55 @@ MonoBehaviour:
   DashSpeed: 200
   EndingSpeedFactor: 1.5
   MinimumEndingSpeed: 75
+--- !u!114 &8083913868049062555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867959994809376}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ea18ef60704e74ba507d7e1ade1a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterAnimator: {fileID: 0}
+  BallAnimator: {fileID: 0}
+  BallAnimationSpeedMultiplier: 0
+  sounds: {fileID: 114848054282303684}
+  DropEffect: {fileID: 198226660144183772}
+  SpinDashChargedEffectAmm: 0
+  PlayerSkin: []
+  SpinDashBall: {fileID: 1634231637410290}
+  PlayerSkinTransform: {fileID: 4737595817924528}
+  DirectionReference: {fileID: 4620708206648248}
+  SpinDashChargingSpeed: 0.3
+  MinimunCharge: 10
+  MaximunCharge: 100
+  ReleaseShakeAmmount: 0
+--- !u!114 &7061305420613870490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867959994809376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30d535755942bcf49b5a2b5be16bfddb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatIsWall:
+    serializedVersion: 2
+    m_Bits: 131073
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 131073
+  wallRunForce: 200
+  maxWallRunTime: 99999
+  wallCheckDistance: 0.7
+  minJumpHeight: 2
+  orientation: {fileID: 7167640200929609131}
 --- !u!1 &1869546911339598
 GameObject:
   m_ObjectHideFlags: 0
@@ -29693,6 +29748,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!1 &2787617694780160349
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7167640200929609131}
+  m_Layer: 8
+  m_Name: WallRun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7167640200929609131
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2787617694780160349}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4253305883763890}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7421731348296751515
 GameObject:
   m_ObjectHideFlags: 0
